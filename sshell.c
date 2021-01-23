@@ -189,9 +189,11 @@ int main(void)
 		} else if (!strcmp(command->program, "pwd")){
 			getcwd(cwd, sizeof(cwd));
 			fprintf(stderr,"%s\n", cwd);
+			exstatus = 0;
 		} else if (!strcmp(command->program, "cd")) {
 			chdir(command->argv[1]);
 			getcwd(cwd, sizeof(cwd));
+			exstatus = 0;
 		} else {
 			/* Regular command */
 			exstatus = process(command);
